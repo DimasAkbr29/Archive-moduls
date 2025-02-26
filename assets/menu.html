@@ -3,151 +3,418 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Archive Dim - Collection of performance optimization modules for Android including SkiaGl, Mole Stabilizer, and GabutRemake by Dimas Akbar"
+    />
     <title>Module Archive</title>
-    <link
-      rel="icon"
-      href="https://www.google.com/imgres?q=anya%20forger%20anime&imgurl=https%3A%2F%2Fdthezntil550i.cloudfront.net%2F1o%2Flatest%2F1o2205031237575030023813341%2F1280_960%2F5b6e67d5-99ff-4d0b-b7a9-9c7cae291f55.png&imgrefurl=https%3A%2F%2Fmedibang.com%2Fpicture%2F1o2205031237575030023813341%2F&docid=KHXJ9sGJ4pPDmM&tbnid=OnDcQDyQok157M&vet=12ahUKEwjGwO3Ah8SLAxVWwTgGHbaBEBIQM3oECEgQAA..i&w=1279&h=959&hcb=2&ved=2ahUKEwjGwO3Ah8SLAxVWwTgGHbaBEBIQM3oECEgQAA"
-      sizes="64x64"
-      type="image/png"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Minified inline CSS -->
     <style>
+      :root {
+        --bg-dark: #0f172a;
+        --text-light: #fff;
+        --card-bg: #1e293b;
+        --accent-blue: #4cc3fe;
+        --footer-bg: #1a1a1a;
+        --link-color: #60a5fa;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
       body {
-        background-color: #0f172a;
-        color: #e2e8f0;
+        background-color: var(--bg-dark);
+        color: var(--text-light);
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
           Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
           sans-serif;
+        line-height: 1.6;
+      }
+
+      .icon {
+        display: inline-block;
+        width: 1.5rem;
+        height: 1.5rem;
+        stroke-width: 2;
+        stroke: currentColor;
+        fill: none;
+        vertical-align: middle;
+      }
+      .back-button {
+        padding: 1rem;
+        color: var(--text-light);
+        text-decoration: none;
+        display: inline-block;
+      }
+      .back-button .icon {
+        font-size: 1.5rem;
+      }
+      .navbar-center {
+        text-align: center;
+        padding: 1rem;
+      }
+      .navbar-title {
+        font-size: 1.5rem;
+        color: var(--accent-blue);
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        display: inline-block;
+        font-weight: 700;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+      .card {
+        background-color: var(--card-bg);
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .card-body {
+        padding: 1.5rem;
+      }
+      .card-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+      .card p {
+        margin: 0.5rem 0;
+        font-size: 0.875rem;
+      }
+      .thin-line {
+        border: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        margin: 1rem 0;
+      }
+      .card-actions {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 1rem;
+      }
+      .download-link {
+        color: var(--link-color);
+        text-decoration: none;
+        font-size: 0.9rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 600;
+        background-color: rgba(96, 165, 250, 0.1);
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      .download-link:hover,
+      .download-link:focus {
+        background-color: rgba(96, 165, 250, 0.2);
+        text-decoration: underline;
+        outline: 2px solid var(--link-color);
+        text-decoration: none;
+      }
+      .download-link:focus-visible {
+        outline: 3px solid var(--accent-blue);
+        outline-offset: 2px;
+      }
+      .footer {
+        background-color: var(--card-bg);
+        padding: 2rem 1rem;
+        margin-top: 2rem;
+      }
+      .footer-links {
+        display: flex;
+        justify-content: space-around;
+        max-width: 600px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+      }
+      .footer-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: var(--text-light);
+        text-decoration: none;
+        margin: 0.5rem;
+        transition: color 0.3s;
+        padding: 0.5rem;
+        border-radius: 4px;
+      }
+      .footer-link .icon {
+        margin-bottom: 0.5rem;
+      }
+      .footer-link:hover,
+      .footer-link:focus {
+        color: var(--accent-blue);
+        background-color: rgba(255, 255, 255, 0.05);
+        outline: none;
+      }
+      .footer-link:focus-visible {
+        outline: 3px solid var(--accent-blue);
+        outline-offset: 2px;
+      }
+      .footer-text {
+        color: #bfc5cd;
+        font-size: 0.8rem;
+        text-align: center;
+        margin-top: 1.5rem;
+      }
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: var(--accent-blue);
+        color: #000;
+        padding: 8px;
+        z-index: 100;
+      }
+      .skip-link:focus {
+        top: 0;
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+      @media (max-width: 640px) {
+        .footer-links {
+          flex-direction: row; /* Tetap dalam satu baris */
+          justify-content: center; /* Tengahkan elemen */
+          flex-wrap: nowrap; /* Jangan biarkan turun ke bawah */
+          gap: 1rem; /* Beri sedikit jarak */
+        }
       }
     </style>
+    <!-- Critical meta tags -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none';"
+    />
+    <meta
+      http-equiv="Strict-Transport-Security"
+      content="max-age=31536000; includeSubDomains"
+    />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="Cache-Control" content="max-age=86400, public" />
+    <link rel="preconnect" href="https://t.me" />
+    <link rel="canonical" href="https://example.com/modules" />
   </head>
   <body>
-    <a href="../index.html">
-      <i class="ti ti-arrow-left text-2xl"></i>
-    </a>
-    <!-- Navbar -->
-    <div class="navbar-center text-center">
-      <a href="https://t.me/Archive_dim"
-        class="typing btn btn-ghost text-xl shadow-light animate-pulse"
-        style="color: #00bcd4"
-        >Archive Dim</a
+    <!-- Accessibility skip link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+      <a
+        href="../index.html"
+        class="back-button"
+        aria-label="Go back to home page"
       >
-    </div>
+        <svg
+          class="icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path d="M19 12H5M12 19l-7-7 7-7"></path>
+        </svg>
+        <span class="sr-only">Back to home</span>
+      </a>
 
-    <!-- Container untuk Card -->
-    <div class="container mx-auto mt-5 px-4">
-      <div class="space-y-4">
-        <div class="card bg-base-100 w-full shadow-xl rounded-none mb-4">
-          <div class="card-body">
-            <h2 class="card-title">SkiaGl Optimation</h2>
-            <p class="text-sm">Versi: All Version</p>
-            <p class="text-sm">oleh: Dimz?</p><script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
-
-            <p>improve your devices smoothes</p>
-            <hr class="thin-line" />
-            <div class="card-actions justify-end">
-              <a href="../module/skiagl.html">
-                <span class="text-sm text-blue-500">
-                  <i class="ti ti-arrow-down-to-arc"></i> Download Now
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card bg-base-100 w-full shadow-xl rounded-none mb-4">
-          <div class="card-body">
-            <h2 class="card-title">Mole Stabilizer</h2>
-            <p class="text-sm">Versi: All Version</p>
-            <p class="text-sm">oleh: Dimz?</p>
-            <p>stabilize fps on mobile legends game</p>
-            <hr class="thin-line" />
-            <div class="card-actions justify-end">
-              <a href="../module/mole.html">
-                <span class="text-sm text-blue-500">
-                  <i class="ti ti-arrow-down-to-arc"></i> Download Now
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card bg-base-100 w-full shadow-xl rounded-none mb-4">
-          <div class="card-body">
-            <h2 class="card-title">GabutRemake</h2>
-            <p class="text-sm">Versi: All Version</p>
-            <p class="text-sm">oleh: @DimAkbr29</p>
-            <p class="text-sm">Credit: @kantrelaxx @ndra_irawan @osyawicane</p>
-            <p>Best Performance Module's for Merlinx</p>
-            <hr class="thin-line" />
-            <div class="card-actions justify-end">
-              <a href="../module/merlin.html">
-                <span class="text-sm text-blue-500">
-                  <i class="ti ti-arrow-down-to-arc"></i> Download Now
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card bg-base-100 w-full shadow-xl rounded-none mb-4">
-          <div class="card-body">
-            <h2 class="card-title">Cooming Soon</h2>
-            <p>
-              This file is currently being created or is still in development and will be released soon! Monitoring
-              keep up with the latest developments by joining our channel for
-              Get exclusive information and the latest updates. Stay tuned!
-            </p>
-            <hr class="thin-line" />
-            <div class="card-actions justify-end">
-              <a href="../assets/coomingsoon.htm">
-                <span class="text-sm text-blue-500">
-                  <i class="ti ti-arrow-down-to-arc"></i> Download Now
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 p-4 flex flex-col items-center mt-5">
-      <div class="flex justify-around w-full">
+      <div class="navbar-center">
         <a
           href="https://t.me/Archive_dim"
-          class="flex flex-col items-center hover:text-blue-400 transition duration-300"
+          class="navbar-title"
+          aria-label="Visit Archive Dim Telegram Channel"
+          >Archive Dim</a
         >
-          <i class="ti ti-brand-telegram"></i>
-          <span class="text-gray-400">Channel</span>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <div class="container">
+        <section>
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title">SkiaGl Optimization</h2>
+              <p>Versi: All Version</p>
+              <p>oleh: Dimz?</p>
+              <p>improve your device's smoothness</p>
+              <hr class="thin-line" />
+              <div class="card-actions">
+                <a
+                  href="../module/skiagl.html"
+                  class="download-link"
+                  aria-label="Download SkiaGl Optimization module"
+                >
+                  <svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path
+                      d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"
+                    ></path>
+                  </svg>
+                  Download Now
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title">Mole Stabilizer</h2>
+              <p>Versi: All Version</p>
+              <p>oleh: Dimz?</p>
+              <p>stabilize fps on mobile legends game</p>
+              <hr class="thin-line" />
+              <div class="card-actions">
+                <a
+                  href="../module/mole.html"
+                  class="download-link"
+                  aria-label="Download Mole Stabilizer module"
+                >
+                  <svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path
+                      d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"
+                    ></path>
+                  </svg>
+                  Download Now
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title">GabutRemake</h2>
+              <p>Versi: All Version</p>
+              <p>oleh: @DimAkbr29</p>
+              <p>Credit: @kantrelaxx @ndra_irawan @osyawicane</p>
+              <p>Best Performance Module's for Merlinx</p>
+              <hr class="thin-line" />
+              <div class="card-actions">
+                <a
+                  href="../module/merlin.html"
+                  class="download-link"
+                  aria-label="Download GabutRemake module"
+                >
+                  <svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path
+                      d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"
+                    ></path>
+                  </svg>
+                  Download Now
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title">ClickVest</h2>
+              <p>Versi: All Version</p>
+              <p>oleh: @DimAkbr29 & @liesudahbelajar</p>
+              <p>Best Performance Module</p>
+              <hr class="thin-line" />
+              <div class="card-actions">
+                <a
+                  href="../module/clickvest.html"
+                  class="download-link"
+                  aria-label="Check Coming Soon modules"
+                >
+                  <svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path
+                      d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"
+                    ></path>
+                  </svg>
+                  Download Now
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-links">
+        <a
+          href="https://t.me/Archive_dim"
+          class="footer-link"
+          aria-label="Visit Telegram Channel"
+        >
+          <svg
+            class="icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4"></path>
+          </svg>
+          <span>Channel</span>
         </a>
         <a
           href="https://t.me/+59rs6nQ2F9JhY2U1"
-          class="flex flex-col items-center hover:text-blue-400 transition duration-300"
+          class="footer-link"
+          aria-label="Join Group Discussion on Telegram"
         >
-          <i class="ti ti-message"></i>
-          <span class="text-gray-400">Group Discussion</span>
+          <svg
+            class="icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path d="M3 20l1.3 -3.9a9 8 0 1 1 3.4 2.9l-4.7 1"></path>
+            <line x1="12" y1="12" x2="12" y2="12.01"></line>
+            <line x1="8" y1="12" x2="8" y2="12.01"></line>
+            <line x1="16" y1="12" x2="16" y2="12.01"></line>
+          </svg>
+          <span>Group Discussion</span>
         </a>
         <a
           href="https://saweria.co/DimasAkbar"
-          class="flex flex-col items-center hover:text-blue-400 transition duration-300"
+          class="footer-link"
+          aria-label="Donate to Dimas Akbar"
         >
-          <i class="ti ti-coins"></i>
-          <span class="text-gray-400">Donate Me</span>
+          <svg
+            class="icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <circle cx="8" cy="8" r="7"></circle>
+            <circle cx="16" cy="16" r="7"></circle>
+          </svg>
+          <span>Donate Me</span>
         </a>
       </div>
-
-      <!-- Copyright di bawah menu -->
-      <p class="mt-3 text-xs text-gray-400">
+      <p class="footer-text">
         © 2024 Dimas Akbar Faturohman. All rights reserved.
       </p>
     </footer>
