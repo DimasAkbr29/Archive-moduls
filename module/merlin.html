@@ -2,191 +2,296 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=
-    , initial-scale=1.0"
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Preconnect to improve load times -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <!-- Combine CSS imports to reduce HTTP requests -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css"
+      rel="stylesheet"
     />
     <link
-    href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css"
-    rel="stylesheet"
-    type="text/css"
-  />
-  <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
-/>
-  <script src="https://cdn.tailwindcss.com"></script>
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
+    />
     <title>Merlinx</title>
     
     <style>
-        body {
-          background-color: #0f172a;
-          color: #e2e8f0;
-          font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-            Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-            sans-serif;
-        }
+      body {
+        background-color: #0f172a;
+        color: #e2e8f0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+      }
       
-        </style>
+      .card {
+        background-color: #1e293b;
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        margin-bottom: 1rem;
+      }
+      
+      .card-body {
+        padding: 1.5rem;
+      }
+      
+      .card-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+      
+      .text-sm {
+        font-size: 0.875rem;
+      }
+      
+      .text-blue-500 {
+        color: #3b82f6;
+      }
+      
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        cursor: pointer;
+      }
+      
+      .rounded-xl {
+        border-radius: 0.75rem;
+      }
+      
+      .thin-line {
+        border: 0;
+        border-top: 1px solid #2d3748;
+        margin: 1rem 0;
+      }
+      
+      .card-actions {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 0.75rem;
+      }
+      
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+      
+      .mt-3 {
+        margin-top: 0.75rem;
+      }
+      
+      .mt-4 {
+        margin-top: 1rem;
+      }
+      
+      .mt-5 {
+        margin-top: 1.25rem;
+      }
+      
+      .mb-4 {
+        margin-bottom: 1rem;
+      }
+      
+      .shadow-xl {
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      
+      .navbar-center {
+        text-align: center;
+        padding: 1rem 0;
+      }
+      
+      .btn-ghost {
+        background-color: transparent;
+      }
+      
+      .text-xl {
+        font-size: 1.25rem;
+      }
+      
+      .animate-pulse {
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+      
+      @keyframes pulse {
+        0%, 100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: .5;
+        }
+      }
+      
+      footer {
+        background-color: #1a202c;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1.25rem;
+      }
+      
+      footer p {
+        margin-top: 0.75rem;
+        font-size: 0.75rem;
+        color: #a0aec0;
+      }
+    </style>
   </head>
   <body>
-   
-    <div class="navbar-center text-center">
-        <a class=" typing btn btn-ghost text-xl shadow-light animate-pulse" style="color: #00bcd4"
-          >Gabut Remake</a
-        >
+    <div class="navbar-center">
+      <a class="typing btn btn-ghost text-xl shadow-light animate-pulse" style="color: #00bcd4">Gabut Remake</a>
+    </div>
+    
+    <div class="container mt-4">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">GabutRemake</h2>
+          <p class="text-sm">Versi: 1.0</p>
+          <p class="text-sm">oleh: @DimAkbr29</p>
+          <p>Credit: @kantrelaxx @ndra_irawan @osyawicane</p>
+          <p>Best Performance Module's</p>
+          <hr class="thin-line">
+          <div class="card-actions mt-3">
+            <a href="../module/merlinchange.html">
+              <span class="text-sm text-blue-500 btn">
+                <i class="ti ti-player-play"></i> Changelog
+              </span>
+            </a>
+            <a href="https://sfl.gl/8khoN9dJ">
+              <span class="text-sm text-blue-500 btn rounded-xl">
+                <i class="ti ti-arrow-down-to-arc"></i> Download Now
+              </span>
+            </a>
+          </div>
         </div>
-     <!-- Container untuk Card -->
-     <div class="container mx-auto mt-4 px-4">
-        <div class="space-y-4">
-            <div class="card bg-base-100 w-full shadow-xl rounded-lg mb-4">
-                <div class="card-body">
-                  <h2 class="card-title">GabutRemake</h2>
-                  <p class="text-sm">Versi: 1.0</p>
-                  <p class="text-sm">oleh: @DimAkbr29</p>
-                  <p>Credit: @kantrelaxx @ndra_irawan @osyawicane</p>
-                  <p>Best Performance Module's</p>
-                  <hr class="thin-line">
-                  <div class="card-actions justify-between mt-3">
-                    <a href="../module/merlinchange.html">
-                      <span class="text-sm text-blue-500 btn justify-left">
-                        <i class="ti ti-player-play"></i> Changelog
-                      </span>
-                    </a>
-                    <a href="https://sfl.gl/8khoN9dJ">
-                      <span class="text-sm text-blue-500 btn rounded-xl">
-                        <i class="ti ti-arrow-down-to-arc"></i> Download Now
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="card bg-base-100 w-full shadow-xl rounded-lg mb-4">
-                <div class="card-body">
-                  <h2 class="card-title">GabutRemake</h2>
-                  <p class="text-sm">Versi: 2.0</p>
-                  <p class="text-sm">oleh: @DimAkbr29</p>
-                  <p>Credit: @kantrelaxx @ndra_irawan @osyawicane</p>
-                  <p>Best Performance Module's</p>
-                  <hr class="thin-line">
-                  <div class="card-actions justify-between mt-3">
+      </div>
+      
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">GabutRemake</h2>
+          <p class="text-sm">Versi: 2.0</p>
+          <p class="text-sm">oleh: @DimAkbr29</p>
+          <p>Credit: @kantrelaxx @ndra_irawan @osyawicane</p>
+          <p>Best Performance Module's</p>
+          <hr class="thin-line">
+          <div class="card-actions mt-3">
+            <a href="../module/merlinchange.html">
+              <span class="text-sm text-blue-500 btn">
+                <i class="ti ti-player-play"></i> changelog
+              </span>
+            </a>
+            <a href="https://sfl.gl/2uqKWXR">
+              <span class="text-sm text-blue-500 btn rounded-xl">
+                <i class="ti ti-arrow-down-to-arc"></i> Download Now
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">GabutRemake</h2>
+          <p class="text-sm">Versi: 3.0</p>
+          <p class="text-sm">oleh: @DimAkbr29</p>
+          <p>Credit: @kantrelaxx @ndra_irawan @osyawicane</p>
+          <p>Best Performance Module's</p>
+          <hr class="thin-line">
+          <div class="card-actions mt-3">
+            <a href="../module/merlinchange.html">
+              <span class="text-sm text-blue-500 btn">
+                <i class="ti ti-player-play"></i> Changelog
+              </span>
+            </a>
+            <a href="https://sfl.gl/XOqol">
+              <span class="text-sm text-blue-500 btn rounded-xl">
+                <i class="ti ti-arrow-down-to-arc"></i> Download Now
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">GabutRemake</h2>
+          <p class="text-sm">Versi: 4.0</p>
+          <p class="text-sm">oleh: @DimAkbr29</p>
+          <p>Credit: @kantrelaxx @ndra_irawan @osyawicane</p>
+          <p>Best Performance Module's</p>
+          <hr class="thin-line">
+          <div class="card-actions mt-3">
+            <a href="merlinchange.html">
+              <span class="text-sm text-blue-500 btn">
+                <i class="ti ti-player-play"></i> changelog
+              </span>
+            </a>
+            <a href="https://sfl.gl/3VOEx">
+              <span class="text-sm text-blue-500 btn rounded-xl">
+                <i class="ti ti-arrow-down-to-arc"></i> Download Now
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">GabutRemake</h2>
+          <p class="text-sm">Versi: 5.0</p>
+          <p class="text-sm">oleh: @DimAkbr29</p>
+          <p>Credit: @kantrelaxx @ndra_irawan @osyawicane</p>
+          <p>Best Performance Module's</p>
+          <hr class="thin-line">
+          <div class="card-actions mt-3">
+            <a href="../assets/coomingsoon.html">
+              <span class="text-sm text-blue-500 btn">
+                <i class="ti ti-player-play"></i> Action
+              </span>
+            </a>
+            <a href="../assets/coomingsoon.html">
+              <span class="text-sm text-blue-500 btn rounded-xl">
+                <i class="ti ti-arrow-down-to-arc"></i> Download Now
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">GabutRemake</h2>
+          <p class="text-sm">Versi: 6.0</p>
+          <p class="text-sm">oleh: @DimAkbr29</p>
+          <p>Credit: @kantrelaxx @ndra_irawan @osyawicane</p>
+          <p>Best Performance Module's</p>
+          <hr class="thin-line">
+          <div class="card-actions mt-3">
+            <a href="../assets/coomingsoon.html">
+              <span class="text-sm text-blue-500 btn">
+                <i class="ti ti-player-play"></i> Action
+              </span>
+            </a>
+            <a href="../assets/coomingsoon.html">
+              <span class="text-sm text-blue-500 btn rounded-xl">
+                <i class="ti ti-arrow-down-to-arc"></i> Download Now
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
 
-                    <a href="../module/merlinchange.html">
-                      <span class="text-sm text-blue-500 btn justify-left">
-                        <i class="ti ti-player-play"></i> changelog
-                      </span>
-                    </a>
-                   
+    <footer>
+      <p>© 2024 Dimas Akbar Faturohman. All rights reserved.</p>
+    </footer>
 
-                    <a href="https://sfl.gl/2uqKWXR">
-                      <span class="text-sm text-blue-500 btn rounded-xl">
-                        <i class="ti ti-arrow-down-to-arc"></i> Download Now
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="card bg-base-100 w-full shadow-xl rounded-lg mb-4">
-                <div class="card-body">
-                  <h2 class="card-title">GabutRemake</h2>
-                  <p class="text-sm">Versi: 3.0</p>
-                  <p class="text-sm">oleh: @DimAkbr29</p>
-                  <p>Credit: @kantrelaxx @ndra_irawan @osyawicane</p>
-                  <p>Best Performance Module's</p>
-                  <hr class="thin-line">
-                  <div class="card-actions justify-between mt-3">
-                    <a href="../module/merlinchange.html">
-                      <span class="text-sm text-blue-500 btn justify-left">
-                        <i class="ti ti-player-play"></i> Action
-                      </span>
-                    </a>
-                    <a href="https://sfl.gl/XOqol">
-                      <span class="text-sm text-blue-500 btn rounded-xl">
-                        <i class="ti ti-arrow-down-to-arc"></i> Download Now
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="card bg-base-100 w-full shadow-xl rounded-lg mb-4">
-                <div class="card-body">
-                  <h2 class="card-title">GabutRemake</h2>
-                  <p class="text-sm">Versi: 4.0</p>
-                  <p class="text-sm">oleh: @DimAkbr29</p>
-                  <p>Credit: @kantrelaxx @ndra_irawan @osyawicane</p>
-                  <p>Best Performance Module's</p>
-                  <hr class="thin-line">
-                  <div class="card-actions justify-between mt-3">
-                    <a href="../assets/coomingsoon.html">
-                      <span class="text-sm text-blue-500 btn justify-left">
-                        <i class="ti ti-player-play"></i> Action
-                      </span>
-                    </a>
-                    <a href="../assets/coomingsoon.html">
-                      <span class="text-sm text-blue-500 btn rounded-xl">
-                        <i class="ti ti-arrow-down-to-arc"></i> Download Now
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="card bg-base-100 w-full shadow-xl rounded-lg mb-4">
-                <div class="card-body">
-                  <h2 class="card-title">GabutRemake</h2>
-                  <p class="text-sm">Versi: 5.0</p>
-                  <p class="text-sm">oleh: @DimAkbr29</p>
-                  <p>Credit: @kantrelaxx @ndra_irawan @osyawicane</p>
-                  <p>Best Performance Module's</p>
-                  <hr class="thin-line">
-                  <div class="card-actions justify-between mt-3">
-                    <a href="../assets/coomingsoon.html">
-                      <span class="text-sm text-blue-500 btn justify-left">
-                        <i class="ti ti-player-play"></i> Action
-                      </span>
-                    </a>
-                    <a href="../assets/coomingsoon.html">
-                      <span class="text-sm text-blue-500 btn rounded-xl">
-                        <i class="ti ti-arrow-down-to-arc"></i> Download Now
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="card bg-base-100 w-full shadow-xl rounded-lg mb-4">
-                <div class="card-body">
-                  <h2 class="card-title">GabutRemake</h2>
-                  <p class="text-sm">Versi: 6.0</p>
-                  <p class="text-sm">oleh: @DimAkbr29</p>
-                  <p>Credit: @kantrelaxx @ndra_irawan @osyawicane</p>
-                  <p>Best Performance Module's</p>
-                  <hr class="thin-line">
-                  <div class="card-actions justify-between mt-3">
-                    <a href="../assets/coomingsoon.html">
-                      <span class="text-sm text-blue-500 btn justify-left">
-                        <i class="ti ti-player-play"></i> Action
-                      </span>
-                    </a>
-                    <a href="../assets/coomingsoon.html">
-                      <span class="text-sm text-blue-500 btn rounded-xl">
-                        <i class="ti ti-arrow-down-to-arc"></i> Download Now
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              
-
-          <!-- Footer -->
-    <footer class="bg-gray-800 p-4 flex flex-col items-center mt-5">
-        <p class="mt-3 text-xs text-gray-400">
-          © 2024 Dimas Akbar Faturohman. All rights reserved.
-        </p>
-      </footer>
+    <!-- Defer non-critical JavaScript -->
+    <script src="https://cdn.tailwindcss.com" defer></script>
   </body>
 </html>
